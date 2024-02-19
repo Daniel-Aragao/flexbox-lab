@@ -18,11 +18,17 @@ function App() {
             <Header theme={theme} toggleTheme={setTheme} />
 
             <div className="container">
-                <div className="first-line">
-                    <MenuOptions options={options} setOptions={setOptions} setElements={setElements} />
+                <div className="line first-line">
+                    <MenuOptions
+                        options={options}
+                        setOptions={setOptions}
+                        setElements={setElements}
+                    />
+                    <FlexContainer options={options} elements={elements} />
+                </div>
+                <div className="line">
                     <ExportOptions options={options} />
                 </div>
-                    <FlexContainer options={options} elements={elements} />
             </div>
         </div>
     );

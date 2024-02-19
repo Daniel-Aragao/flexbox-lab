@@ -7,7 +7,7 @@ export default function useFlex() {
         "justify-content": "flex-start",
         "align-items": "flex-start",
         "align-content": "flex-start",
-        "gap": 0,
+        "gap": 3,
         "row-gap": undefined,
         "colum-gap": undefined
     }));

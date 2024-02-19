@@ -1,4 +1,5 @@
 import "../css/menu-options.css";
+import clearImg from "../img/clear.png";
 
 const flexProperties = {
     "flex-direction": ["row", "row-reverse", "column", "column-reverse"],
@@ -34,11 +35,16 @@ export default function MenuOptions({ options, setOptions, setElements }) {
 
         if (flexPropertyOptions) {
             return flexPropertyOptions.map((flexPropertyOption) => {
-                const cssClass = options[flexProperty] === flexPropertyOption ? "selected" : "";
+                const cssClass =
+                    options[flexProperty] === flexPropertyOption
+                        ? "selected"
+                        : "";
 
                 return (
                     <div
-                        onClick={() => onOptionClick(flexProperty, flexPropertyOption)}
+                        onClick={() =>
+                            onOptionClick(flexProperty, flexPropertyOption)
+                        }
                         key={flexPropertyOption}
                         className={`flex-option ${cssClass}`}
                     >
@@ -49,7 +55,10 @@ export default function MenuOptions({ options, setOptions, setElements }) {
         } else if (flexPropertyOptions === 0) {
             return (
                 <input
-                    onChange={(e) => onOptionClick(flexProperty, e.target.value)}
+                    onChange={(e) =>
+                        onOptionClick(flexProperty, e.target.value)
+                    }
+                    value={options[flexProperty]}
                     type="number"
                     name={flexPropertyOptions}
                     className="flex-option-number"
@@ -63,9 +72,19 @@ export default function MenuOptions({ options, setOptions, setElements }) {
         let divs = [];
 
         for (let option in options) {
+            let showWarning =
+                option === "align-content" && options["flex-wrap"] === "nowrap";
+
             divs.push(
                 <div key={option} className="option-block">
-                    <div>{option}</div>
+                    <div>
+                        {option}
+                        {showWarning && (
+                            <span
+                                style={{ fontSize: "x-small" }}
+                            >{` (The flex-wrap: nowrap property prevents align-content from having an effect )`}</span>
+                        )}
+                    </div>
                     <div className="flex-option-container">
                         {loadOptionsItems(option)}
                     </div>
@@ -76,11 +95,34 @@ export default function MenuOptions({ options, setOptions, setElements }) {
         return divs;
     }
 
-    return <div className="menu container-box">{loadOptions()}
-        <div className="buttons">
-            <div>Elements</div>
-            <button className="button button-primary add-remove" onClick={() => setElements((e) => ++e)}>+</button>
-            <button className="button button-accent add-remove" onClick={() => setElements((e) => e === 0? e : --e )}>-</button>
+    return (
+        <div className="menu container-box">
+            {loadOptions()}
+            <div className="buttons">
+                <div>Elements</div>
+                <button
+                    className="button button-primary add-remove"
+                    onClick={() => setElements((e) => ++e)}
+                >
+                    +
+                </button>
+                <button
+                    className="button button-accent add-remove"
+                    onClick={() => setElements((e) => (e === 1 ? e : --e))}
+                >
+                    -
+                </button>
+                <div
+                    onClick={() => setElements((e) => 1)}
+                    className="icon-wrapper"
+                >
+                    <img
+                        src={clearImg}
+                        alt="clear elements"
+                        className="img-filter"
+                    />
+                </div>
+            </div>
         </div>
-    </div>;
+    );
 }

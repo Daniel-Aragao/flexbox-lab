@@ -1,54 +1,63 @@
-/* light https://www.realtimecolors.com/?colors=0e061e-d1d1d1-733ad4-e58ae4-d82252&fonts=Poppins-Poppins */
-/* dark https://www.realtimecolors.com/?colors=e9e1f9-2e2e2e-632bc5-751a74-dd2757&fonts=Poppins-Poppins */
+/* light https://www.realtimecolors.com/?colors=070524-e0dffb-0f0f80-ee77af-d7191c&fonts=Poppins-Poppins */
+/* dark https://www.realtimecolors.com/?colors=dddbfa-050420-7f7ff0-881149-e6282c&fonts=Poppins-Poppins */
 
 /* Light */
 :root {
-  --text: #0e061e;
-  --background: #b6b5b8;
-  --primary: #733ad4;
-  --secondary: #e58ae4;
-  --accent: #D82252;
-  --box-shadow-color: #909090;
-  --box-shadow: -1px 2px 6px;
-  --svg-dark-filter: none;
-}
+    --text: #070524;
+    --background: #e0dffb;
+    --primary: #0f0f80;
+    --secondary: #ee77af;
+    --accent: #d7191c;
 
+    --primary-text: #e9e1f9;
+    --box-shadow-color: #909090;
+    --box-shadow: -1px 2px 6px;
+    --svg-dark-filter: none;
+}
 
 /* Dark */
 [data-theme="dark"] {
-  --text: #e9e1f9;
-  --background: #2e2e2e;
-  --primary: #632bc5;
-  --secondary: #751a74;
-  --accent: #DD2557;
-  
-  --box-shadow-color: #1d1d1d;
-  --box-shadow: -1px 2px 6px;
-  --svg-dark-filter: invert(1);
+    --text: #dcd9fa;
+    --background: #050420;
+    --primary: #7f7ff0;
+    --secondary: #8a114a;
+    --accent: #e52729;
+
+    --primary-text: #050420;
+    --box-shadow-color: #1d1d1d;
+    --box-shadow: -1px 2px 6px;
+    --svg-dark-filter: invert(1);
 }
 
-
 * {
-  color: var(--text);
+    color: var(--text);
+}
+
+.spacer {
+    height: 30px;
+    border-left: 0.5px solid var(--text);
 }
 
 .button {
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
-  cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
 }
 
 .button-primary {
-  background-color: var(--primary);
+    background-color: var(--primary);
+    color: var(--primary-text);
 }
 
 .button-secondary {
-  background-color: var(--secondary);
+    background-color: var(--secondary);
+    color: var(--primary-text);
 }
 
 .button-accent {
-  background-color: var(--accent);
+    background-color: var(--accent);
+    color: var(--primary-text);
 }
 
 .App {
@@ -73,14 +82,14 @@
 }
 
 .header-right-btns {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 120px;
 }
 
 .header-right-btns > span {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .container {
@@ -97,15 +106,18 @@
     padding: 10px;
 }
 
-.first-line {
+.line {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     width: 100%;
     gap: 15px;
-    padding: 15px;
+    padding: 0 15px 15px 15px;
     box-sizing: border-box;
     flex-wrap: nowrap;
+}
+
+.line:first-child {
+    padding-top: 15px;
 }
 
 .menu {
@@ -116,18 +128,69 @@
 
 .export {
     display: flex;
-    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .flex-container {
     display: flex;
-    margin: 0 15px;
+    flex: 1 1;
+    overflow: auto;
+    padding: 0;
 }
 
-.logo-filter {
-  filter: var(--svg-dark-filter);
-  height: 25px; 
-  width: 25px;
+.icon-wrapper {
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.icon-wrapper:after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    left: 0;
+    transition: 0.3s;
+    background: var(--primary);
+
+    opacity: 0;
+
+    border-radius: 5px;
+}
+
+.icon-wrapper:active:after {
+    opacity: 0.8;
+    transition: 0s;
+}
+
+.icon-wrapper:hover {
+    box-shadow: var(--box-shadow) var(--box-shadow-color);
+}
+
+.icon-wrapper.selected {
+    background-color: var(--primary);
+}
+
+.img-filter {
+    filter: var(--svg-dark-filter);
+}
+
+.img-shadow {
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+.icon-wrapper.selected > img {
+    filter: invert(1);
+}
+
+.icon-wrapper > img {
+    height: 25px;
+    width: 25px;
 }
 
 @keyframes App-logo-spin {
@@ -139,21 +202,20 @@
     }
 }
 
-
 .flex-element {
-  height: 50px;
-  width: 50px;
-  border-radius: 5px;
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
 }
 
 .flex-element-primary {
-  background-color: var(--primary);
+    background-color: var(--primary);
 }
 
 .flex-element-secondary {
-  background-color: var(--secondary);
+    background-color: var(--secondary);
 }
 
 .flex-element-accent {
-  background-color: var(--accent);
+    background-color: var(--accent);
 }

@@ -34,6 +34,7 @@
 
 .flex-option.selected {
     background-color: var(--primary);
+    color: var(--primary-text);
 }
 
 .flex-option-container {
