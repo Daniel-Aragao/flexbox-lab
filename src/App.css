@@ -113,7 +113,7 @@
     gap: 15px;
     padding: 0 15px 15px 15px;
     box-sizing: border-box;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .line:first-child {
@@ -137,6 +137,8 @@
     flex: 1 1;
     overflow: auto;
     padding: 0;
+    min-width: 160px;
+    min-height: 160px;
 }
 
 .icon-wrapper {
