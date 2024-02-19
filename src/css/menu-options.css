@@ -1,0 +1,63 @@
+.option-block:not(:last-child) {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--box-shadow-color);
+}
+
+.option-block > :first-child {
+    text-align: left;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.flex-option {
+    order: 1px solid transparent;
+    padding: 5px;
+    font-size: small;
+    border-radius: 5px;
+}
+
+.flex-option-number {
+    border: 1px solid transparent;
+    padding: 3px;
+    font-size: small;
+    border-radius: 5px;
+    width: 40px;
+    background-color: transparent;
+    box-shadow: 1px 1px 5px -1px var(--box-shadow-color);
+}
+
+.flex-option:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 5px -1px var(--box-shadow-color);
+}
+
+.flex-option.selected {
+    background-color: var(--primary);
+}
+
+.flex-option-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.buttons > div {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.add-remove {
+    font-size: large;
+    height: 30px;
+    width: 30px;
+}
