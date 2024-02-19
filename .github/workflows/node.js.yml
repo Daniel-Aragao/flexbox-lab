@@ -32,4 +32,4 @@ jobs:
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
     - name: Publish page
-      uses: actions/actions/deploy-pages@v3
+      uses: actions/deploy-pages@v3
