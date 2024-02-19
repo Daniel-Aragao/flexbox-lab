@@ -20,9 +20,9 @@ function App() {
             <div className="container">
                 <div className="first-line">
                     <MenuOptions options={options} setOptions={setOptions} setElements={setElements} />
-                    <FlexContainer options={options} elements={elements} />
-                </div>
                     <ExportOptions options={options} />
+                </div>
+                    <FlexContainer options={options} elements={elements} />
             </div>
         </div>
     );
