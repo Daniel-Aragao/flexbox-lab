@@ -136,7 +136,6 @@
     display: flex;
     flex: 1 1;
     overflow: auto;
-    padding: 0;
     min-width: 160px;
     min-height: 160px;
 }
