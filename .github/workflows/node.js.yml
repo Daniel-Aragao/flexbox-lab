@@ -31,5 +31,7 @@ jobs:
     - run: yarn run build
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
+      with: 
+        path: ./build
     - name: Publish page
       uses: actions/deploy-pages@v3
