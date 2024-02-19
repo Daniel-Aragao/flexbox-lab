@@ -36,9 +36,6 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       with: 
         path: ./build
-        
-    - name: Publish page
-      uses: actions/deploy-pages@v3
 
   deploy:
     # Add a dependency to the build job
