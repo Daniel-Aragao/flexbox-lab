@@ -26,10 +26,15 @@ const propertyNames = {
     }
 }
 
+const ponctuation = {
+    css: ';',
+    reactNative: ','
+}
+
 export default function ExportOptions({options}) {
     const [propertyFormat, setPropertyFormat] = useState('css');
 
-    let text = ".container {\n"
+    let text = `.container {\n    display:${propertyFormat === 'reactNative' ? "'flex',": "flex;" }\n`;
 
     for(let option in options) {
         if(options[option]) {
@@ -37,8 +42,12 @@ export default function ExportOptions({options}) {
             if(option === 'gap' && options['gap'] === '0') continue;
             if(option === 'row-gap' && options['row-gap'] === '0') continue;
             if(option === 'colum-gap' && options['colum-gap'] === '0') continue;
+            
+            let isNumber = option.indexOf('gap') >= 0;
 
-            text += `    ${propertyNames[propertyFormat][option]}: ${options[option]};\n`
+            let valueFormated = !isNumber && propertyFormat === 'reactNative' ? `'${options[option]}'` : options[option];
+
+            text += `    ${propertyNames[propertyFormat][option]}: ${valueFormated}${ponctuation[propertyFormat]}\n`
         }
     }
 
