@@ -63,6 +63,7 @@ export default function MenuOptions({ options, setOptions, setElements }) {
                     name={flexPropertyOptions}
                     className="flex-option-number"
                     placeholder=" "
+                    min={0}
                 />
             );
         }

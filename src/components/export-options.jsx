@@ -33,6 +33,11 @@ export default function ExportOptions({options}) {
 
     for(let option in options) {
         if(options[option]) {
+            if(option === 'align-content' && options['flex-wrap'] === 'nowrap') continue;
+            if(option === 'gap' && options['gap'] === '0') continue;
+            if(option === 'row-gap' && options['row-gap'] === '0') continue;
+            if(option === 'colum-gap' && options['colum-gap'] === '0') continue;
+
             text += `    ${propertyNames[propertyFormat][option]}: ${options[option]};\n`
         }
     }
