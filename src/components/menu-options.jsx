@@ -27,7 +27,18 @@ const flexProperties = {
 
 export default function MenuOptions({ options, setOptions, setElements }) {
     function onOptionClick(option, newValue) {
-        setOptions((current) => ({ ...current, [option]: newValue }));
+        setOptions((current) => {
+            const fixGap = {'gap': current['gap'], 'row-gap': current['row-gap'], 'column-gap': current['column-gap']};
+
+            if(option === 'gap') {
+                fixGap['row-gap'] = 0;
+                fixGap['column-gap'] = 0;
+            } else if(option === 'row-gap' || option === 'column-gap') {
+                fixGap['gap'] = 0;
+            }
+
+            return { ...current, ...fixGap, [option]: newValue }
+        });
     }
 
     function loadOptionsItems(flexProperty) {
