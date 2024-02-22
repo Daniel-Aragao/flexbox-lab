@@ -9,7 +9,7 @@ export default function useFlex() {
         "align-content": "flex-start",
         "gap": 3,
         "row-gap": undefined,
-        "colum-gap": undefined
+        "column-gap": undefined
     }));
 
     return [options, setOptions];

@@ -22,7 +22,7 @@ const flexProperties = {
     ],
     gap: 0,
     "row-gap": 0,
-    "colum-gap": 0,
+    "column-gap": 0,
 };
 
 export default function MenuOptions({ options, setOptions, setElements }) {
